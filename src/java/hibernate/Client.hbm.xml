@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 nov. 2013 22:59:04 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="hibernate.Client" table="client" catalog="eurocop">
+        <id name="idclient" type="string">
+            <column name="idclient" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="passwordclient" type="string">
+            <column name="passwordclient" length="45" not-null="true" />
+        </property>
+        <property name="localisation" type="string">
+            <column name="localisation" length="100" />
+        </property>
+        <property name="disponibiliteclient" type="java.lang.Boolean">
+            <column name="disponibiliteclient" />
+        </property>
+        <set name="appareils" table="appareil" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idclient" length="30" />
+            </key>
+            <one-to-many class="hibernate.Appareil" />
+        </set>
+    </class>
+</hibernate-mapping>

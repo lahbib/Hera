@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 nov. 2013 22:59:04 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="hibernate.Expert" table="expert" catalog="eurocop">
+        <id name="idexpert" type="string">
+            <column name="idexpert" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="expertpwd" type="string">
+            <column name="expertpwd" length="30" />
+        </property>
+        <property name="localisationexpert" type="string">
+            <column name="localisationexpert" length="100" />
+        </property>
+        <property name="disponibiliteexpert" type="java.lang.Boolean">
+            <column name="disponibiliteexpert" />
+        </property>
+        <set name="pannes" table="expertise" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="idexpert" length="45" not-null="true" />
+            </key>
+            <many-to-many entity-name="hibernate.Panne">
+                <column name="idpanne" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
