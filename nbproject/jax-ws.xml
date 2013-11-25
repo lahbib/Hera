@@ -4,6 +4,9 @@
     <service name="authent">
       <implementation-class>hiber.authent</implementation-class>
     </service>
+    <service name="clientAuthentWS">
+      <implementation-class>hiber.clientAuthentWS</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

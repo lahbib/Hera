@@ -17,17 +17,7 @@ import javax.jws.WebParam;
 @WebService(serviceName = "authent")
 public class authent {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
 
-    /**
-     * Web service operation
-     */
     @WebMethod(operationName = "authentification")
     public String authentification(@WebParam(name = "login") String login, @WebParam(name = "motdepasse") String motdepasse) {
      
